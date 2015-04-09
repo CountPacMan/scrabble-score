@@ -1,40 +1,16 @@
-function findAnagrams(input_word, input_array) {
-  var input_word_sorted = input_word.toLowerCase().split("");
-  var matches = [];
-  input_array.forEach(function(word) {
-    var word_sorted = word.toLowerCase().split("");
+function getScore(word) {
+  var letters = { 'd': 2, 'g': 2, 'b': 3, 'c' : 3, 'm': 3, 'p': 3, 'f': 4, 'h': 4, 'v': 4, 'w': 4, 'y': 4, 'k': 5, 'j' : 8, 'x': 8, 'q': 10,  'z': 10 };
+  var score = letters[word] ? letters[word] : 1;
 
-    var overlap_array = input_word_sorted.filter(function(element) {
-      return word_sorted.indexOf(element) != -1;
-    });
-
-    if (overlap_array.length === input_word.length) {
-      matches.push(word);
-    }
-  });
-
-  return matches;
+  return score;
 }
 
 
 jQuery(document).ready(function() {
-  $("#word").focus();
-  $("#anagram").submit(function(event) {
+  $("#").focus();
+  $("#").submit(function(event) {
 
-    var word = $("#word").val();
-    var list_of_words = $("#array").val().split(" ");
 
-    var matches = findAnagrams(word, list_of_words);
-
-    if (matches.length === 0)
-    {
-      $("#nomatches").show()
-      $("#result").hide();
-    } else {
-      $("#matches").text(matches.join(", "));
-      $("#result").show();
-      $("#nomatches").hide();
-    }
 
     event.preventDefault();
   });
