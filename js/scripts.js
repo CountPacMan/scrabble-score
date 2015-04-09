@@ -13,11 +13,12 @@ function getScore(word) {
 
 
 jQuery(document).ready(function() {
-  $("#").focus();
-  $("#").submit(function(event) {
-
-
-
+  $("#word").focus();
+  $("#scrabble-score").submit(function(event) {
+    var word = $("#word").val();
+    var score = getScore(word);
+    $("#score").text(score);
+    $("#result").show();
     event.preventDefault();
   });
 });
