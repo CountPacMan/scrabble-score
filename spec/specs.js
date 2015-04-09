@@ -11,4 +11,8 @@ describe('getScore', function() {
     expect(getScore("dog")).to.equal(5);
   });
 
+  it("returns a score of 5 for GOD", function() {
+    expect(getScore("GOD")).to.equal(5);
+  });
+
 });
